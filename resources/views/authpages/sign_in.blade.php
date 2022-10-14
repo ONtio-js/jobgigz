@@ -1,24 +1,36 @@
 @extends('layouts.auth')
 
 @section('content')
+<div class="title-bar">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ol class="title-bar-text">
+                    <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"> Sign In</li>
+                </ol>
+            </div>
+        </div>
+    </div>
+</div>
     <main class="browse-section">
         <div class="container">
             <div class="row justify-content-md-center">
                 <div class="col-md-6">
                     <form class="lg_form" action="{{ route('login') }}" method="POST">
                         @csrf
-                       
-                     
+
+
                         <div class="main-heading">
                             <h2>Sign in to Jobby</h2>
                             <div class="line-shape1">
                                 <img src="images/line.svg" alt="">
                             </div>
-                            
+
                                 @if (Session()->has('password'))
                                 <div class="passwordEr">{{session()->get('password')}}</div>
                                 @endif
-                         
+
                         </div>
                         <div class="form-group">
                             <label class="label15">Email Address <span style="color: red">*</span></label>

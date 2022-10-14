@@ -87,7 +87,7 @@
                 <div class="row">
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <nav class="navbar navbar-expand-lg navbar-light bg-dark1 justify-content-sm-start">
-                            <a class="order-1 order-lg-0 ml-lg-0 ml-3 mr-auto" href="index.html"><img
+                            <a class="order-1 order-lg-0 ml-lg-0 ml-3 mr-auto" href="/"><img
                                     src="images/logo.svg" alt=""></a>
                             <button class="navbar-toggler align-self-start" type="button">
                                 <i class="fas fa-bars"></i>
@@ -96,7 +96,7 @@
                                 id="navbarSupportedContent">
                                 <ul class="navbar-nav align-self-stretch">
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="index.html">Home <span
+                                        <a class="nav-link" href="/">Home <span
                                                 class="sr-only">(current)</span></a>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -120,7 +120,7 @@
                                             data-toggle="dropdown">Find Freelancers</a>
                                         <div class="dropdown-menu pages-dropdown">
                                             <a class="link-item" href="/search">Browse Freelancers</a>
-                                            
+
                                         </div>
                                     </li>
                                 </ul>
@@ -140,20 +140,6 @@
             </div>
         </div>
     </header>
-
-
-    <div class="title-bar">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <ol class="title-bar-text">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Sign In</li>
-                    </ol>
-                </div>
-            </div>
-        </div>
-    </div>
 
     @yield('content')
 
@@ -185,7 +171,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="about-jobby">
-                        <a href="index.html"><img src="images/logo1.svg" alt=""></a>
+                        <a href="/"><img src="images/logo1.svg" alt=""></a>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu purus et diam blandit
                             vehicula sit amet sed metus. Fusce condimentum non neque at fringilla. Aenean malesuada
                             aliquet tincidunt.</p>
@@ -197,7 +183,7 @@
                         <ul>
                             <li><a href="/about">About Us</a></li>
                             @if (!request()->is('showlogin'))
-                            <li><a href="sign_in.html">Login</a></li>  
+                            <li><a href="sign_in.html">Login</a></li>
                             @endif
                             <li><a href="/contact">Contact</a></li>
                             <li><a href="/privacy">Privacy Policy</a></li>
@@ -211,7 +197,7 @@
                         <ul>
                             <li><a href="/search">Browese Freelancers</a></li>
                             <li><a href="/jobs/create">Post a Job</a></li>
-                           
+
                         </ul>
                     </div>
                 </div>
@@ -277,7 +263,4 @@
         });
     </script>
 </body>
-
-<!-- Mirrored from gambolthemes.net/html-items/jobby/jobby-freelancer/sign_in.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 Sep 2022 19:24:21 GMT -->
-
 </html>

@@ -9,9 +9,13 @@ class CompanyAuth extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['id','companyname','industry','email','launchdate','description','tagline','location','password','website','image_path'];
+    protected $fillable = ['companyname','email','password'];
 
     public function job(){
         return $this->hasMany(Job::class);
+    }
+
+    public function company(){
+        return $this->hasOne(Company::class);
     }
 }

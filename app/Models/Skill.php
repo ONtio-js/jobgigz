@@ -5,14 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class FreelancerAuth extends Model
+class Skill extends Model
 {
     use HasFactory;
 
     protected $guarded = [];
 
-    public function freelancer(){
-        return $this->hasOne(Freelancer::class);
+
+    public $timestamps = false;
+
+    public function industry(){
+        return $this->belongsToMany(Industry::class);
     }
 
 }

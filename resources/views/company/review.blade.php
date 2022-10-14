@@ -132,19 +132,7 @@
 				</div>
 			</div>
 			<div class="col-lg-9 col-md-8 mainpage">
-				<div class="account_tabs">
-					<ul class="nav nav-tabs">
-						<li class="nav-item">
-							<a class="nav-link" href="other_company_profile.html">Profile</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="other_company_members.html">Members</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link active" href="other_company_reviews.html">Reviews</a>
-						</li>
-					</ul>
-				</div>
+                <x-company-tab />
 				<div class="view_chart">
 					<div class="view_chart_header">
 						<h4 class="mt-1">All Reviews</h4>

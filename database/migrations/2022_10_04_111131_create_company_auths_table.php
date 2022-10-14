@@ -18,12 +18,6 @@ class CreateCompanyAuthsTable extends Migration
             $table->string('companyname')->unique();
             $table->string('email');
             $table->string('password');
-            $table->date('launchdate')->nullable(true);
-            $table->string('industry')->nullable(true);
-            $table->MediumText('description');
-            $table->string('tagline')->nullable(true);
-            $table->string('location')->nullable(true);
-            $table->string('image_path')->nullable(true);
             $table->timestamps();
         });
     }

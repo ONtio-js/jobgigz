@@ -1,24 +1,25 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, shrink-to-fit=9">
     <meta name="description" content="Gambolthemes">
     <meta name="author" content="Gambolthemes">
-    <title>{{config('app.name')}}</title>
+    <title>{{ config('app.name') }}</title>
 
     <link rel="icon" type="image/png" href="images/fav.png">
 
-    <link href="{{asset("css/responsive.css")}}" rel="stylesheet">
-    <link href="{{asset('css/style.css')}}" rel="stylesheet">
-    <link href="{{asset('css/datepicker.min.css')}}" rel="stylesheet">
-    <link href="{{asset('vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('vendor/fontawesome-free/css/all.min.css')}}" rel="stylesheet">
-    <link href="{{asset('vendor/OwlCarousel/assets/owl.carousel.css')}}" rel="stylesheet">
-    <link href="{{'vendor/OwlCarousel/assets/owl.theme.default.min.css'}}" rel="stylesheet">
+    <link href="{{ asset('css/responsive.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/datepicker.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('vendor/OwlCarousel/assets/owl.carousel.css') }}" rel="stylesheet">
+    <link href="{{ 'vendor/OwlCarousel/assets/owl.theme.default.min.css' }}" rel="stylesheet">
 
-    <link rel="stylesheet" type="text/css" href="{{asset('vendor/semantic/semantic.min.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/semantic/semantic.min.css') }}">
 </head>
 
 <body>
@@ -80,7 +81,8 @@
                                             <div class="user-request-list">
                                                 <div class="request-users">
                                                     <div class="user-request-dt">
-                                                        <a href="#"><img src="{{asset('images/user-dp-1.jpg')}}"
+                                                        <a href="#"><img
+                                                                src="{{ asset('images/user-dp-1.jpg') }}"
                                                                 alt="">
                                                             <div class="user-title1">Jassica William </div>
                                                             <span>Hey How are you John Doe...</span>
@@ -92,7 +94,8 @@
                                             <div class="user-request-list">
                                                 <div class="request-users">
                                                     <div class="user-request-dt">
-                                                        <a href="#"><img src="{{asset('images/user-dp-1.jpg')}}"
+                                                        <a href="#"><img
+                                                                src="{{ asset('images/user-dp-1.jpg') }}"
                                                                 alt="">
                                                             <div class="user-title1">Rock Smith </div>
                                                             <span>Interesting Event! I will join this...</span>
@@ -104,7 +107,8 @@
                                             <div class="user-request-list">
                                                 <div class="request-users">
                                                     <div class="user-request-dt">
-                                                        <a href="#"><img src="{{asset('images/user-dp-1.jpg')}}"
+                                                        <a href="#"><img
+                                                                src="{{ asset('images/user-dp-1.jpg') }}"
                                                                 alt="">
                                                             <div class="user-title1">Joy Doe </div>
                                                             <span>Hey Sir! What about you...</span>
@@ -174,35 +178,47 @@
                                         <div class="account order-1 dropdown">
                                             <a href="#" class="account-link dropdown-toggle-no-caret"
                                                 role="button" data-toggle="dropdown">
-                                                <div class="user-dp"><img src="{{asset('images/dp.jpg')}}" alt=""></div>
+                                                <div class="user-dp"><img src="{{ asset('images/dp.jpg') }}"
+                                                        alt=""></div>
                                                 <span>Hi! @if (session()->has('details'))
-                                                    {{session()->get('details.company')}}
-                                                    {{session()->get('details.freelancer')}}
-                                                @else
-                                                    guest
-                                                @endif</span>
+                                                        {{ session()->get('details.company') }}
+                                                        {{ session()->get('details.freelancer') }}
+                                                    @else
+                                                        guest
+                                                    @endif
+                                                </span>
                                                 <i class="fas fa-sort-down"></i>
                                             </a>
                                             <div class="dropdown-menu account-dropdown dropdown-menu-right">
-                                                <a class="link-item" href="{{route('dashboard')}}">Dashboard</a>
-                                                <a class="link-item" href="{{route('setting')}}">Setting</a>
-                                                <a class="link-item" href="{{route('messages')}}">My
-                                                    Messages</a>
-                                                <a class="link-item" href="{{route('jobs.index')}}">My Jobs</a>
-                                                <a class="link-item" href="{{route('bids')}}">My Bids</a>
-                                                <a class="link-item" href="{{route('portfolio')}}">My
-                                                    Portfolio</a>
-                                                <a class="link-item" href="{{route('bookmarks')}}">My
-                                                    Bookmarks</a>
-                                                <a class="link-item" href="{{route('payments')}}">Payments</a>
-                                                @if (session()->has('details'))
-                                                <a class="link-item" href="{{route('logout')}}">Logout</a>
-                                                @else
-                                                <a class="link-item" href="{{route('mode')}}">Sign Up</a>
-                                                <a class="link-item" href="{{route('showlogin')}}">Login</a> 
-                                                
+                                                @if (session()->has('details.company'))
+                                                    <a class="link-item" href="{{ route('profile') }}">Dashboard</a>
+                                                    <a class="link-item" href="/members">Employees</a>
+                                                    <a class="link-item" href="/freelancers">Freelancers</a>
+                                                    <a class="link-item" href="/reviews">Reviews</a>
+                                                    <a class="link-item"
+                                                        href="{{ route('company.edit', session()->get('details.companyId')) }}">Update Profile</a>
+                                                @elseif(session()->has('details.freelance'))
+                                                    <a class="link-item"
+                                                        href="{{ route('dashboard') }}">Dashboard</a>
+                                                    <a class="link-item" href="{{ route('setting') }}">Setting</a>
+                                                    <a class="link-item" href="{{ route('messages') }}">My
+                                                        Messages</a>
+                                                    <a class="link-item" href="{{ route('jobs.index') }}">My Jobs</a>
+                                                    <a class="link-item" href="{{ route('bids') }}">My Bids</a>
+                                                    <a class="link-item" href="{{ route('portfolio') }}">My
+                                                        Portfolio</a>
+                                                    <a class="link-item" href="{{ route('bookmarks') }}">My
+                                                        Bookmarks</a>
+                                                    <a class="link-item" href="{{ route('payments') }}">Payments</a>
                                                 @endif
-                                               
+                                                @if (session()->has('details'))
+                                                    <a class="link-item" href="{{ route('logout') }}">Logout</a>
+                                                @else
+                                                    <a class="link-item" href="{{ route('mode') }}">Sign Up</a>
+                                                    <a class="link-item" href="{{ route('showlogin') }}">Login</a>
+                                                @endif
+
+
                                             </div>
                                         </div>
                                     </li>
@@ -219,7 +235,7 @@
                     <div class="col-lg-12 col-md-12 col-sm-12">
                         <nav class="navbar navbar-expand-lg navbar-light bg-dark1 justify-content-sm-start">
                             <a class="order-1 order-lg-0 ml-lg-0 ml-3 mr-auto" href="/"><img
-                                    src="{{asset('images/logo.svg')}}" alt=""></a>
+                                    src="{{ asset('images/logo.svg') }}" alt=""></a>
                             <button class="navbar-toggler align-self-start" type="button">
                                 <i class="fas fa-bars"></i>
                             </button>
@@ -227,15 +243,15 @@
                                 id="navbarSupportedContent">
                                 <ul class="navbar-nav align-self-stretch">
                                     <li class="nav-item active">
-                                        <a class="nav-link" href="{{route('home.index')}}">Home <span
+                                        <a class="nav-link" href="{{ route('home.index') }}">Home <span
                                                 class="sr-only">(current)</span></a>
                                     </li>
                                     <li class="nav-item dropdown">
                                         <a href="#" class="nav-link dropdown-toggle-no-caret" role="button"
                                             data-toggle="dropdown">Find Jobs</a>
                                         <div class="dropdown-menu pages-dropdown">
-                                            <a class="link-item" href="{{route('jobs.index')}}">Browse Jobs</a>
-                                            <a class="link-item" href="{{route('jobs.create')}}">Post a Job</a>
+                                            <a class="link-item" href="{{ route('jobs.index') }}">Browse Jobs</a>
+                                            <a class="link-item" href="{{ route('jobs.create') }}">Post a Job</a>
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -253,7 +269,7 @@
                                             data-toggle="dropdown">Find Companies</a>
                                         <div class="dropdown-menu pages-dropdown">
                                             <a class="link-item" href="/company">Browse Companies</a>
-                                           
+
                                         </div>
                                     </li>
                                     <li class="nav-item dropdown">
@@ -263,7 +279,7 @@
                                             <a class="link-item" href="/search">Browse Freelancers</a>
                                         </div>
                                     </li>
-                                
+
                                 </ul>
                                 <a href="#" class="search-link" role="button" data-toggle="modal"
                                     data-target="#searchModal"><i class="fas fa-search"></i></a>
@@ -313,7 +329,7 @@
             <div class="row">
                 <div class="col-lg-3 col-md-3">
                     <div class="about-jobby">
-                        <a href="/"><img src="{{asset('images/logo1.svg')}}" alt=""></a>
+                        <a href="/"><img src="{{ asset('images/logo1.svg') }}" alt=""></a>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque eu purus et diam blandit
                             vehicula sit amet sed metus. Fusce condimentum non neque at fringilla. Aenean malesuada
                             aliquet tincidunt.</p>
@@ -327,9 +343,9 @@
 
                             <li><a href="/showlogin">Login</a></li>
                             @if (session()->has('details.freelanceId'))
-                            <li><a href="profile">My Account</a></li>
+                                <li><a href="profile">My Account</a></li>
                             @endif
-                          
+
                             <li><a href="/contact">Contact</a></li>
                             <li><a href="/privacy">Privacy Policy</a></li>
                             <li><a href="/terms">Terms of Use</a></li>
@@ -342,7 +358,7 @@
                         <ul>
                             <li><a href="/search">Browese Freelancers</a></li>
                             <li><a href="/jobs/create">Post a Job</a></li>
-            
+
                             <li><a href="/helpcenter">Help Center</a></li>
                         </ul>
                     </div>
@@ -352,8 +368,8 @@
                         <h4>For Candidates</h4>
                         <ul>
                             <li><a href="/jobs">Browese Jobs</a></li>
-                            <li><a href="{{route('job-personal')}}">Jobs Alerts</a></li>
-                            <li><a href="{{route('job-personal')}}">Applied Jobs</a></li>
+                            <li><a href="{{ route('job-personal') }}">Jobs Alerts</a></li>
+                            <li><a href="{{ route('job-personal') }}">Applied Jobs</a></li>
                             <li><a href="/bookmarks">Bookmarks</a></li>
                         </ul>
                     </div>
@@ -365,7 +381,8 @@
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
                         <div class="copyright">
-                            <i class="far fa-copyright"></i>Copyright {{date('Y')}} <span>JOBgigz</span>. All Right Reserved.
+                            <i class="far fa-copyright"></i>Copyright {{ date('Y') }} <span>JOBgigz</span>. All
+                            Right Reserved.
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
@@ -387,13 +404,13 @@
     <button onclick="topFunction()" id="pageup" title="Go to top"><i class="fas fa-arrow-up"></i></button>
 
 
-    <script src="{{asset('js/jquery.min.js')}}"></script>
-    <script src="{{asset('js/datepicker.min.js')}}"></script>
-    <script src="{{asset('js/i18n/datepicker.en.js')}}"></script>
-    <script src="{{asset('vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('vendor/OwlCarousel/owl.carousel.js')}}"></script>
-    <script src="{{asset('vendor/semantic/semantic.min.js')}}"></script>
-    <script src="{{asset('js/custom1.js')}}"></script>
+    <script src="{{ asset('js/jquery.min.js') }}"></script>
+    <script src="{{ asset('js/datepicker.min.js') }}"></script>
+    <script src="{{ asset('js/i18n/datepicker.en.js') }}"></script>
+    <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('vendor/OwlCarousel/owl.carousel.js') }}"></script>
+    <script src="{{ asset('vendor/semantic/semantic.min.js') }}"></script>
+    <script src="{{ asset('js/custom1.js') }}"></script>
     <script>
         window.oncontextmenu = function() {
             return false;

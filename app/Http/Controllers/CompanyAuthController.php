@@ -17,22 +17,23 @@ class CompanyAuthController extends Controller
         return view('authpages.company_sign_up');
     }
 
-    public function register(Request $request){
-        // $request->validate();
-        // dd($request);
+    public function register(CompanyAuthrequest $request){
+        $request->validated();
+
         $company =  CompanyAuth::create([
             'companyname'=>$request->companyName,
             'email'=>$request->email,
-            'description'=>$request->description,
             'password'=>Hash::make($request->input('password'))
         ]);
 
         if ($company){
-            return redirect()->back()->with('confirmation','Account Created successfully');
+            session()->flash('success','Account Created successfully');
+            return redirect()->back();
         }else{
-            return redirect()->back()->with('confirmation','something is wrong');
+            session()->flash('fail','something is wrong');
+            return redirect()->back();
         }
 
-    
+
     }
 }

@@ -20,4 +20,16 @@ class Job extends Model
     public function company_auth(){
         return $this->belongsTo(CompanyAuth::class);
     }
+
+    public function industry(){
+        return $this->belongsToMany(Industry::class);
+    }
+
+    public function review(){
+        return $this->hasOne(Review::class);
+    }
+
+    public function transaction(){
+        return $this->hasMany(Transaction::class);
+    }
 }

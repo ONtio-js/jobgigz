@@ -14,8 +14,9 @@ class CreateJobsTable extends Migration
     public function up()
     {
         Schema::create('jobs', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('company_auth_id')->constrained()->onDelete('cascade');
+            $table->bigIncrements('id');
+            $table->foreignId('company_auth_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('industry_id')->constrained()->cascadeOnDelete();
             $table->string('title');
             $table->mediumText('description');
             $table->string('type');
@@ -26,7 +27,6 @@ class CreateJobsTable extends Migration
             $table->string('salarymax');
             $table->string('location');
             $table->string('languages');
-            $table->string('skills');
             $table->string('file_path');
             $table->timestamps();
         });

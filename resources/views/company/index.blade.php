@@ -454,262 +454,53 @@
 					</div>
 					<div class="prjoects-content">
 						<div class="row view-group" id="freelancers">
-							<div class="lg-item5 col-lg-6 col-xs-6 grid-group-item5">
-								<div class="job-item mt-30">
-									<div class="job-top-dt1 text-center">
-										<div class="job-center-dt">
-											<img src="images/company/img-1.jpg" alt="">
-											<div class="job-urs-dts">
-												<a href="#">
-													<h4>Gambol Themes</h4>
-												</a>
-												<a href="#"
-													class="avialable c-link">www.gambolthemes.net</a>
-											</div>
-										</div>
-									</div>
-									<div class="rating-location">
-										<div class="left-rating">
-											<div class="rtitle">Rating</div>
-											<div class="star">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<span>4.9</span>
-											</div>
-										</div>
-										<div class="right-location">
-											<div class="text-left">
-												<div class="rtitle">Location</div>
-												<span><i class="fas fa-map-marker-alt"></i> New York City</span>
-											</div>
-										</div>
-									</div>
-									<div class="job-buttons">
-										<ul class="link-btn">
-											<li class="cpy-btn"><a href="other_company_profile.html"
-													class="link-j1" title="View Profile">View Profile</a></li>
-											<li class="bkd-pm"><button class="bookmark1" title="bookmark"><i
-														class="fas fa-heart"></i></button></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="lg-item5 col-lg-6 col-xs-6 grid-group-item5">
-								<div class="job-item mt-30">
-									<div class="job-top-dt1 text-center">
-										<div class="job-center-dt">
-											<img src="images/company/img-2.jpg" alt="">
-											<div class="job-urs-dts">
-												<a href="#">
-													<h4>Plame Designs</h4>
-												</a>
-												<a href="#"
-													class="avialable c-link">www.plamedesigns.net</a>
-											</div>
-										</div>
-									</div>
-									<div class="rating-location">
-										<div class="left-rating">
-											<div class="rtitle">Rating</div>
-											<div class="star">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<span>4.9</span>
-											</div>
-										</div>
-										<div class="right-location">
-											<div class="text-left">
-												<div class="rtitle">Location</div>
-												<span><i class="fas fa-map-marker-alt"></i> Australia</span>
-											</div>
-										</div>
-									</div>
-									<div class="job-buttons">
-										<ul class="link-btn">
-											<li class="cpy-btn"><a href="other_company_profile.html"
-													class="link-j1" title="View Profile">View Profile</a></li>
-											<li class="bkd-pm"><button class="bookmark1" title="bookmark"><i
-														class="fas fa-heart"></i></button></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="lg-item5 col-lg-6 col-xs-6 grid-group-item5">
-								<div class="job-item mt-30">
-									<div class="job-top-dt1 text-center">
-										<div class="job-center-dt">
-											<img src="images/company/img-3.jpg" alt="">
-											<div class="job-urs-dts">
-												<a href="#">
-													<h4>Logomaker</h4>
-												</a>
-												<a href="#" class="avialable c-link">www.logomaker.net</a>
-											</div>
-										</div>
-									</div>
-									<div class="rating-location">
-										<div class="left-rating">
-											<div class="rtitle">Rating</div>
-											<div class="star">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<span>5.0</span>
-											</div>
-										</div>
-										<div class="right-location">
-											<div class="text-left">
-												<div class="rtitle">Location</div>
-												<span><i class="fas fa-map-marker-alt"></i> India</span>
-											</div>
-										</div>
-									</div>
-									<div class="job-buttons">
-										<ul class="link-btn">
-											<li class="cpy-btn"><a href="other_company_profile.html"
-													class="link-j1" title="View Profile">View Profile</a></li>
-											<li class="bkd-pm"><button class="bookmark1" title="bookmark"><i
-														class="fas fa-heart"></i></button></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="lg-item5 col-lg-6 col-xs-6 grid-group-item5">
-								<div class="job-item mt-30">
-									<div class="job-top-dt1 text-center">
-										<div class="job-center-dt">
-											<img src="images/company/img-4.jpg" alt="">
-											<div class="job-urs-dts">
-												<a href="#">
-													<h4>Sofwebtech</h4>
-												</a>
-												<a href="#"
-													class="avialable c-link">www.sofwebtech.net</a>
-											</div>
-										</div>
-									</div>
-									<div class="rating-location">
-										<div class="left-rating">
-											<div class="rtitle">Rating</div>
-											<div class="star">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<span>5.0</span>
-											</div>
-										</div>
-										<div class="right-location">
-											<div class="text-left">
-												<div class="rtitle">Location</div>
-												<span><i class="fas fa-map-marker-alt"></i> India</span>
-											</div>
-										</div>
-									</div>
-									<div class="job-buttons">
-										<ul class="link-btn">
-											<li class="cpy-btn"><a href="other_company_profile.html"
-													class="link-j1" title="View Profile">View Profile</a></li>
-											<li class="bkd-pm"><button class="bookmark1" title="bookmark"><i
-														class="fas fa-heart"></i></button></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="lg-item5 col-lg-6 col-xs-6 grid-group-item5">
-								<div class="job-item mt-30">
-									<div class="job-top-dt1 text-center">
-										<div class="job-center-dt">
-											<img src="images/company/img-5.jpg" alt="">
-											<div class="job-urs-dts">
-												<a href="#">
-													<h4>WPMarket</h4>
-												</a>
-												<a href="#" class="avialable c-link">www.wpMarket.net</a>
-											</div>
-										</div>
-									</div>
-									<div class="rating-location">
-										<div class="left-rating">
-											<div class="rtitle">Rating</div>
-											<div class="star">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<span>4.0</span>
-											</div>
-										</div>
-										<div class="right-location">
-											<div class="text-left">
-												<div class="rtitle">Location</div>
-												<span><i class="fas fa-map-marker-alt"></i> India</span>
-											</div>
-										</div>
-									</div>
-									<div class="job-buttons">
-										<ul class="link-btn">
-											<li class="cpy-btn"><a href="other_company_profile.html"
-													class="link-j1" title="View Profile">View Profile</a></li>
-											<li class="bkd-pm"><button class="bookmark1" title="bookmark"><i
-														class="fas fa-heart"></i></button></li>
-										</ul>
-									</div>
-								</div>
-							</div>
-							<div class="lg-item5 col-lg-6 col-xs-6 grid-group-item5">
-								<div class="job-item mt-30">
-									<div class="job-top-dt1 text-center">
-										<div class="job-center-dt">
-											<img src="images/company/img-6.jpg" alt="">
-											<div class="job-urs-dts">
-												<a href="#">
-													<h4>Multimedia Web</h4>
-												</a>
-												<a href="#"
-													class="avialable c-link">www.multimediaweb.net</a>
-											</div>
-										</div>
-									</div>
-									<div class="rating-location">
-										<div class="left-rating">
-											<div class="rtitle">Rating</div>
-											<div class="star">
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<i class="fas fa-star"></i>
-												<span>5.0</span>
-											</div>
-										</div>
-										<div class="right-location">
-											<div class="text-left">
-												<div class="rtitle">Location</div>
-												<span><i class="fas fa-map-marker-alt"></i> India</span>
-											</div>
-										</div>
-									</div>
-									<div class="job-buttons">
-										<ul class="link-btn">
-											<li class="cpy-btn"><a href="other_company_profile.html"
-													class="link-j1" title="View Profile">View Profile</a></li>
-											<li class="bkd-pm"><button class="bookmark1" title="bookmark"><i
-														class="fas fa-heart"></i></button></li>
-										</ul>
-									</div>
-								</div>
-							</div>
+						@forelse ($companies as $company)
+                        <div class="lg-item5 col-lg-6 col-xs-6 grid-group-item5">
+                            <div class="job-item mt-30">
+                                <div class="job-top-dt1 text-center">
+                                    <div class="job-center-dt">
+                                        <img src="images/company/img-1.jpg" alt="">
+                                        <div class="job-urs-dts">
+                                            <a href="#">
+                                                <h4>Gambol Themes</h4>
+                                            </a>
+                                            <a href="#"
+                                                class="avialable c-link">www.gambolthemes.net</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rating-location">
+                                    <div class="left-rating">
+                                        <div class="rtitle">Rating</div>
+                                        <div class="star">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <span>4.9</span>
+                                        </div>
+                                    </div>
+                                    <div class="right-location">
+                                        <div class="text-left">
+                                            <div class="rtitle">Location</div>
+                                            <span><i class="fas fa-map-marker-alt"></i> New York City</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="job-buttons">
+                                    <ul class="link-btn">
+                                        <li class="cpy-btn"><a href="other_company_profile.html"
+                                                class="link-j1" title="View Profile">View Profile</a></li>
+                                        <li class="bkd-pm"><button class="bookmark1" title="bookmark"><i
+                                                    class="fas fa-heart"></i></button></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        @empty
+
+                        @endforelse
 							<div class="col-12">
 								<div class="main-p-pagination">
 									<nav aria-label="Page navigation example">

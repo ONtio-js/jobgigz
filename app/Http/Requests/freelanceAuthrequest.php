@@ -24,9 +24,6 @@ class freelanceAuthrequest extends FormRequest
     public function rules()
     {
         return [
-            'FirstName'=>'required',
-            'LastName'=>'required',
-            'location'=>'required',
             'email'=>'required|unique:freelancer_auths',
             'password'=>'required|confirmed|min:10|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/'
         ];

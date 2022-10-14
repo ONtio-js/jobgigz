@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFreelancerAuthsTable extends Migration
+class CreateIndustryJobTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,9 @@ class CreateFreelancerAuthsTable extends Migration
      */
     public function up()
     {
-        Schema::create('freelancer_auths', function (Blueprint $table) {
-            $table->id('id');
-            $table->string('email')->unique();
-            $table->string('password');
-            $table->timestamps();
+        Schema::create('industry_job', function (Blueprint $table) {
+        $table->foreignId('industry_id')->constrained()->cascadeOnDelete();
+        $table->foreignId('job_id')->constrained()->cascadeOnDelete();
         });
     }
 
@@ -28,6 +26,6 @@ class CreateFreelancerAuthsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('freelancer_auths');
+        Schema::dropIfExists('industry_job');
     }
 }

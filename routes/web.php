@@ -31,7 +31,6 @@ Route::resource('/freelance',FreelanceController::class);
 Route::resource('/jobs',JobsController::class);
 Route::resource('/payment',PaymentController::class);
 Route::resource('/blog',BlogController::class);
-Route::resource('/companyjob',CompanyJobsController::class);
 
 //company authentication routes
 Route::controller(CompanyAuthController::class)->group(function(){
@@ -75,4 +74,12 @@ Route::controller(FreelanceController::class)->group(function(){
     Route::get('/search','search')->name('search');
     Route::get('/setting','setting')->name('setting');
     Route::get('/job','job')->name('job-personal');
+});
+
+
+Route::controller(CompanyController::class)->group(function(){
+    Route::get('/members','members')->name('members');
+    Route::get('/reviews','reviews')->name('reviews');
+    Route::get('/freelancers','freelancers')->name('freelancers');
+    Route::get('/profile','profile')->name('profile');
 });

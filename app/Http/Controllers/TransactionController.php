@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CompanyUpadteRequest;
-use App\Models\Company;
-use App\Models\CompanyAuth;
 use Illuminate\Http\Request;
 
-class CompanyController extends Controller
+class TransactionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,10 +13,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $companies = Company::with('company_auth')->paginate();
-        return view('company.index',['companies'=>$companies]);
+        //
     }
-
 
     /**
      * Show the form for creating a new resource.
@@ -28,25 +23,9 @@ class CompanyController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
-
-    public function reviews(){
-        return view('company.review');
-    }
-
-    public function members(){
-        return view('company.member');
-    }
-
-    public function freelancers(){
-        return view('company.freelance');
-    }
-
-    public function profile(){
-        return view('company.profile');
-    }
     /**
      * Store a newly created resource in storage.
      *
@@ -66,9 +45,7 @@ class CompanyController extends Controller
      */
     public function show($id)
     {
-        $companyId = CompanyAuth::find($id);
-
-        // return view('company.view',['id'=>$companyId]);
+        //
     }
 
     /**
@@ -79,9 +56,7 @@ class CompanyController extends Controller
      */
     public function edit($id)
     {
-        $companyId = CompanyAuth::find($id);
-
-        return view('company.edit',['id'=>$companyId]);
+        //
     }
 
     /**
@@ -91,18 +66,9 @@ class CompanyController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(CompanyUpadteRequest $request, $id)
+    public function update(Request $request, $id)
     {
-
-        $request->validated();
-
-        $companyId = CompanyAuth::find($id);
-
-        if ($companyId){
-           $update = Company::updateOrcreate([
-
-           ]);
-        }
+        //
     }
 
     /**
