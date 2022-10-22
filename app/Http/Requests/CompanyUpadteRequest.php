@@ -29,6 +29,8 @@ class CompanyUpadteRequest extends FormRequest
             'description'=>'required',
             'city'=>'required',
             'country'=>'required',
+            'languages'=>'required',
+            'launchdate'=>'required',
             'zipcode'=>'required',
             'industry'=>'required',
             'website'=>'required',

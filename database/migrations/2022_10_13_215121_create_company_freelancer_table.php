@@ -14,8 +14,8 @@ class CreateCompanyFreelancerTable extends Migration
     public function up()
     {
         Schema::create('company_freelancer', function (Blueprint $table) {
-            $table->foreignId('company_auth_id')->constrained()->cascadeOnDelete();
-            $table->foreignId('freelancer_auth_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('companies_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('freelancers_id')->constrained()->cascadeOnDelete();
         });
     }
 

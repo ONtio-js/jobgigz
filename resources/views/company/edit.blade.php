@@ -70,6 +70,9 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @error('file')
+                                            <div style="color: red"> {{ $message }}</div>
+                                        @enderror
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
@@ -91,6 +94,9 @@
                                                             class="fas fa-calendar-alt"></i></div>
                                                 </div>
                                             </div>
+                                            @error('launchdate')
+                                            <div style="color: red"> {{ $message }}</div>
+                                        @enderror
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group">
@@ -111,38 +117,19 @@
                                                         name="description"></textarea>
                                                 </div>
                                             </div>
+                                            @error('description')
+                                            <div style="color: red"> {{ $message }}</div>
+                                        @enderror
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group">
                                                 <label class="label15">Industry<span style="color: red">*</span></label>
                                                 <input type="email" class="job-input"
                                                     placeholder="Industry" name="industry">
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-6">
-                                            <div class="form-group">
-                                                <label class="label15">Availability<span style="color: red">*</span></label>
-                                                <div
-                                                    class="ui fluid search selection dropdown skills-search">
-                                                    <input name="avaliability" type="hidden"
-                                                        value="">
-                                                    <i class="dropdown icon"></i>
-                                                    <input class="search" autocomplete="off"
-                                                        tabindex="0">
-                                                    <span class="sizer" style=""></span>
-                                                    <div class="default text">I’m not sure</div>
-                                                    <div class="menu transition hidden"
-                                                        tabindex="-1">
-                                                        <div class="item selected"
-                                                            data-value="Availability1">Full Time</div>
-                                                        <div class="item selected"
-                                                            data-value="Availability2">Part Time</div>
-                                                        <div class="item selected"
-                                                            data-value="Availability3">Not Available
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
+                                            </div>       @error('industry')
+                                            <div style="color: red"> {{ $message }}</div>
+                                        @enderror
+
                                         </div>
                                         <div class="col-lg-6">
                                             <div class="form-group">
@@ -181,6 +168,9 @@
                                                     </div>
                                                 </div>
                                             </div>
+                                            @error('languages')
+                                            <div style="color: red"> {{ $message }}</div>
+                                        @enderror
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group">
@@ -192,6 +182,9 @@
                                                             class="fas fa-crosshairs"></i></div>
                                                 </div>
                                             </div>
+                                            @error('country')
+                                            <div style="color: red"> {{ $message }}</div>
+                                        @enderror
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group">
@@ -202,7 +195,10 @@
                                                     <div class="loc_icon"><i
                                                             class="fas fa-crosshairs"></i></div>
                                                 </div>
-                                            </div>
+                                            </div>       @error('city')
+                                            <div style="color: red"> {{ $message }}</div>
+                                        @enderror
+
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group">
@@ -214,6 +210,9 @@
                                                             class="fas fa-crosshairs"></i></div>
                                                 </div>
                                             </div>
+                                            @error('zipcode')
+                                            <div style="color: red"> {{ $message }}</div>
+                                        @enderror
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="form-group">
@@ -225,6 +224,9 @@
                                                             class="fas fa-globe"></i></div>
                                                 </div>
                                             </div>
+                                            @error('website')
+                                            <div style="color: red"> {{ $message }}</div>
+                                        @enderror
                                         </div>
                                         <div class="col-lg-12">
                                             <button class="post_jp_btn" type="submit">SAVE

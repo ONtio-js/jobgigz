@@ -18,6 +18,8 @@ class JobCreateAndEdit
     {
         if (!session()->has('details.companyId')){
             return back()->with('message',' Register company account to post job');
+        }else if(session()->get('details.verify') == null){
+            return back()->with('message',' Account not verified, Proceed to your registered email');
         }
         return $next($request);
     }

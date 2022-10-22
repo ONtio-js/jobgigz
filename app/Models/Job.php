@@ -17,8 +17,8 @@ class Job extends Model
         'title','company_auth_id','description','type','category','avaliability','experiencelevel','salarymin','salarymax','location','languages','skills','file_path'
     ];
 
-    public function company_auth(){
-        return $this->belongsTo(CompanyAuth::class);
+    public function company(){
+        return $this->belongsTo(company::class);
     }
 
     public function industry(){

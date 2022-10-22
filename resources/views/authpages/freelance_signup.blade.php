@@ -24,9 +24,10 @@
                         </div>
                     </div>
                     <div class="post501">
-                        <form action="{{ route('freelance-store') }}" method="POST">
+                        <form action="{{ route('register') }}" method="POST">
                             @csrf
                             <div class="row">
+                                <input type="hidden" name="role" value="freelancer">
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="label15">Email Address<span style="color: red">*</span></label>

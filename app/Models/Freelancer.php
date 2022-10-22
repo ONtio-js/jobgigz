@@ -14,8 +14,8 @@ class Freelancer extends Model
     public $timestamps = false;
 
 
-    public function freelance_auth(){
-        return $this->belongsTo(FreelancerAuth::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
     public function socialable(){

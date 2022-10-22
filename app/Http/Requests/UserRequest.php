@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class CompanyAuthrequest extends FormRequest
+class UserRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -24,8 +24,7 @@ class CompanyAuthrequest extends FormRequest
     public function rules()
     {
         return [
-            'companyName'=>'required|unique:company_auths',
-            'email'=>'required|email|unique:company_auths',
+            'email'=>'required|unique:users',
             'password'=>'required|confirmed|min:10|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/'
         ];
     }

@@ -10,6 +10,8 @@ use App\Http\Controllers\FreelanceController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobsController;
 use App\Http\Controllers\PaymentController;
+use App\Http\Controllers\UserController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,20 +34,19 @@ Route::resource('/jobs',JobsController::class);
 Route::resource('/payment',PaymentController::class);
 Route::resource('/blog',BlogController::class);
 
-//company authentication routes
-Route::controller(CompanyAuthController::class)->group(function(){
-    Route::get('/mode','index')->name('mode');
-    Route::get('/register','company_mode')->name('company-reg')->middleware('SignedIn');
-    Route::post('companyreigstration','register')->name('company-store');
-});
 
-//freelancer authentication routes
-Route::controller(FreelanceAuthController::class)->group(function(){
+
+Route::controller(UserController::class)->group(function(){
     Route::get('/freelancer','freelance_mode')->name('freelance-reg')->middleware('SignedIn');
-    Route::post('/freelanceregister','register')->name('freelance-store');
+    Route::get('/company','company_mode')->name('company-reg')->middleware('SignedIn');
+    Route::get('/mode','index')->name('mode')->middleware('SignedIn');
+    Route::post('/signup','register')->name('register');
     Route::post('/login','login')->name('login');
     Route::get('/showlogin','showlogin')->name('showlogin')->middleware('SignedIn');
     Route::get('/logout','logout')->name('logout')->middleware('logout');
+    Route::get('/users/verify/{token}','verifyemail')->name('verification');
+    Route::get('/user/passwordresetlink/{emial}','sendPasswordResetLink')->name('passwordresetlink');
+    Route::post('/user/passwordrest/{token}','passwordreset')->name('passwordreset');
 });
 Route::controller(JobsController::class)->group(function(){
     Route::get('/appilication/{id}','apply')->name('apply');

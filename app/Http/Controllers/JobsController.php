@@ -6,6 +6,7 @@ use App\Http\Requests\JobCreationRequest;
 use App\Models\CompanyAuth;
 use App\Models\Job;
 use Illuminate\Support\Facades\Session;
+use App\Http\Controllers\FunctionController;
 class JobsController extends Controller
 {
     public function __construct()
@@ -48,15 +49,8 @@ class JobsController extends Controller
 
         $filetype = $request->file->extension();
 
-        $newFileName = time().'-'.$request->title.'.'.$request->file->extension();
+       $newFileName =  FunctionController::checkfileextandmove($filetype,$request);
 
-        if ($filetype == ('jpg' || 'png' || 'jpeg')){
-            $request->file->move(public_path('images/homepage/latest-jobs'),$newFileName);
-        }else if($filetype == 'docx'){
-            $request->file->move(public_path('images/homepage/latest-jobs'),$newFileName);
-        }else{
-            $request->image->move(public_path('pdf'),$newFileName);
-        }
         $id = session()->get('details.companyId');
         $company = CompanyAuth::find($id);
                 $job =    Job::create([

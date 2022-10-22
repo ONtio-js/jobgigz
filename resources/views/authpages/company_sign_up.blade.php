@@ -25,9 +25,10 @@
                         </div>
                     </div>
                     <div class="post501">
-                        <form action="{{ route('company-store') }}" method="POST">
+                        <form action="{{ route('register') }}" method="POST">
                             @csrf
                             <div class="row">
+                                <input type="hidden" name="role" value="company">
                                 <div class="col-lg-6">
                                     <div class="form-group">
                                         <label class="label15">Company Name<span style="color: red">*</span></label>

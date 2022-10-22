@@ -96,12 +96,31 @@ class CompanyController extends Controller
 
         $request->validated();
 
+        $FileType = $request->file->extension();
+
+        $newFileName = FunctionController::checkfileextandmove($FileType, $request);
+
         $companyId = CompanyAuth::find($id);
 
         if ($companyId){
            $update = Company::updateOrcreate([
-
+            'company_auths_id'=>$companyId,
+            'launchdate'=>$request->launchdate,
+            'description'=>$request->description,
+            'avaliability'=>$request->avaliability,
+            'language'=>$request->languages,
+            'address_city'=>$request->city,
+            'address_country'=>$request->country,
+            'zipcode'=>$request->zipcode,
+            'industry'=>$request->industry,
+            'website'=>$request->website,
+            'image_path'=>$newFileName
            ]);
+
+           if ($update){
+            session()->flash('message','Profile Updated');
+            return redirect(route('company.profile'));
+           }
         }
     }
 

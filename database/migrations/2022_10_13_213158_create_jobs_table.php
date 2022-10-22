@@ -15,7 +15,7 @@ class CreateJobsTable extends Migration
     {
         Schema::create('jobs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('company_auth_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('companies_id')->constrained()->cascadeOnDelete();
             $table->foreignId('industry_id')->constrained()->cascadeOnDelete();
             $table->string('title');
             $table->mediumText('description');

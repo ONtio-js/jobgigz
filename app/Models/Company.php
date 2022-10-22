@@ -14,10 +14,13 @@ class Company extends Model
     public $timestamps = false;
 
 
-    public function company_auth(){
-        return $this->belongsTo(CompanyAuth::class);
+    public function user(){
+        return $this->belongsTo(User::class);
     }
 
+    public function job(){
+        return $this->hasMany(Job::class);
+    }
     public function socialable(){
         return $this->morphOne(socials::class,'socialable');
     }

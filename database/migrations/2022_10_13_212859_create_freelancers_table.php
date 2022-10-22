@@ -15,7 +15,7 @@ class CreateFreelancersTable extends Migration
     {
         Schema::create('freelancers', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->foreignId('freelancer_auth_id')->constrained()->onDelete('cascade');
+            $table->foreignId('users_id')->constrained()->onDelete('cascade');
             $table->string('firstname');
             $table->string('lastname');
             $table->date('birthdate');
