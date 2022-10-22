@@ -45,8 +45,10 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/showlogin','showlogin')->name('showlogin')->middleware('SignedIn');
     Route::get('/logout','logout')->name('logout')->middleware('logout');
     Route::get('/users/verify/{token}','verifyemail')->name('verification');
-    Route::get('/user/passwordresetlink/{emial}','sendPasswordResetLink')->name('passwordresetlink');
-    Route::post('/user/passwordrest/{token}','passwordreset')->name('passwordreset');
+    Route::post('/user/passwordresetlink','sendPasswordResetLink')->name('passwordresetlink');
+    Route::get('/user/passwordrest/{token}','passwordreset')->name('passwordreset');
+    Route::post('/validate_reste_password','password_validate_reset')->name('passwordvalidate');
+    Route::get('/resetlinkform','passwordresetlinkform')->name('passwordresetlinkform');
 });
 Route::controller(JobsController::class)->group(function(){
     Route::get('/appilication/{id}','apply')->name('apply');

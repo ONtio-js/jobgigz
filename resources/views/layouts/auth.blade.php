@@ -1,8 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<!-- Mirrored from gambolthemes.net/html-items/jobby/jobby-freelancer/sign_in.html by HTTrack Website Copier/3.x [XR&CO'2014], Thu, 22 Sep 2022 19:24:20 GMT -->
-
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">

@@ -57,7 +57,7 @@
                                         class="fas fa-angle-double-right"></i></a>
                             </div>
                             <div class="done147">
-                                <a href="forgot_password.html">Forgot Password?</a>
+                                <a href="{{route('passwordresetlinkform')}}">Forgot Password?</a>
                             </div>
                         </div>
                     </form>

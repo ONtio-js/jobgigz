@@ -20,23 +20,31 @@
     <div class="container">
         <div class="row justify-content-md-center">
             <div class="col-md-6">
-                <form class="lg_form" method="POST" action="{{route('passwordresetlink')}}">
+                <form class="lg_form" method="POST" action="{{route('passwordvalidate')}}">
                     @csrf
                     <div class="main-heading">
-                        <h2>Forgot Password</h2>
+                        <h2>Reset Password</h2>
                         <div class="line-shape1">
                             <img src="images/line.svg" alt="">
                         </div>
                     </div>
-                    <p class="forgot_des">Enter your email and we'll send a link to reset your password.</p>
+                    <p class="forgot_des">Enter your new password.</p>
+                    <input type="hidden" name="email" value="{{$email}}">
                     <div class="form-group">
-                        <label class="label15">Email Address*</label>
-                        <input name="email" type="email" class="job-input" placeholder="Enter Email Address">
+                        <label class="label15">New Password<span style="color: red">*</span></label>
+                        <input name="password" type="password" class="job-input" placeholder="Enter Email Address">
                     </div>
-                    @error('email')
+                    @error('password')
                        <span style="color: red">{{$message}}</span>
                     @enderror
-                    <button class="lr_btn" type="submit">Send Link</button>
+                    <div class="form-group">
+                        <label class="label15">Confirm Password<span style="color: red">*</span></label>
+                        <input name="password_confirmation" type="password" class="job-input" placeholder="Enter Email Address">
+                    </div>
+                    @error('password_confirmation')
+                       <span style="color: red">{{$message}}</span>
+                    @enderror
+                    <button class="lr_btn" type="submit">Reset Password</button>
                     <div class="done140">
                         Go to<a href="/showlogin">Sign in<i class="fas fa-angle-double-right"></i></a>
                     </div>

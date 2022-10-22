@@ -39,7 +39,9 @@ class UserController extends Controller
     {
         return view('authpages.sign_in');
     }
-
+    public function passwordresetlinkform(){
+        return view('authpages.forgot_password');
+    }
     public function register(UserRequest $request)
     {
         $request->validated();
@@ -123,15 +125,20 @@ class UserController extends Controller
         return true;
     }
 
-    public function sendPasswordResetLink($email)
+    public function sendPasswordResetLink(Request $request)
     {
-        $user = User::where('email','=',$email);
+        $request->validate([
+            'email'=>'required|email|exists:users,email'
+        ]);
+
+        $user = User::where('email','=',$request->email);
 
         if (isset($user)){
 
             PasswordReset::create([
-                'email' =>$email,
-                'token' => Str::random(60)
+                'email' =>$request->email,
+                'token' => Str::random(60),
+                'created_at' => Carbon::now()
             ]);
 
             Mail::to($user->email)->send(new MailPasswordReset($user));
@@ -142,9 +149,36 @@ class UserController extends Controller
         }
     }
 
-    public function passwordreset(){
-        
+    public function password_validate_reset(Request $request){
+        $request->validate([
+            'password'=>'required|confirmed|min:10|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
+        ]);
+       $passwordUpdate = User::where('email',$request->email)->upadte([
+            'password'=>Hash::make($request->password)
+        ]);
+
+        if ($passwordUpdate){
+            session()->flash('message','password Updated successfully');
+            return redirect(route('showlogin'));
+        }else{
+            return abort(500,'Internal server Error');
+        }
     }
+
+
+    public function passwordreset($token){
+        $verified = PasswordReset::where('token',$token);
+
+        if (isset($verified)){
+            
+            return view('authpages.reset_password',['email'=>$verified->email]);
+        }else{
+            session()->flash('message','Unauthorized Access, please contact the support');
+            return view('authpages.sign_in');
+        }
+
+    }
+
 
     public function logout(){
         if(session()->has('details.freelanceId') || session()->has('details.companyId')){

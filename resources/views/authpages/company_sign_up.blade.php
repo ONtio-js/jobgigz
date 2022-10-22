@@ -29,17 +29,7 @@
                             @csrf
                             <div class="row">
                                 <input type="hidden" name="role" value="company">
-                                <div class="col-lg-6">
-                                    <div class="form-group">
-                                        <label class="label15">Company Name<span style="color: red">*</span></label>
-                                        <input type="text" class="job-input" placeholder="Your Company Name"
-                                            name="companyName" value="{{old('companyName')}}">
-											@error('companyName')
-												<span style="color: red">{{ $message }}</span>
-											@enderror
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <div class="form-group">
                                         <label class="label15">Email Address<span style="color: red">*</span></label>
                                         <input type="email" class="job-input" placeholder="Enter Your Email Address"

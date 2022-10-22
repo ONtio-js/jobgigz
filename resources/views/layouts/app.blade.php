@@ -212,6 +212,7 @@
                                                     <a class="link-item" href="{{ route('payments') }}">Payments</a>
                                                 @endif
                                                 @if (session()->has('details'))
+                                                    <a  class="link-item" href="{{ route('passwordresetlinkform') }}">Reset Password</a>
                                                     <a class="link-item" href="{{ route('logout') }}">Logout</a>
                                                 @else
                                                     <a class="link-item" href="{{ route('mode') }}">Sign Up</a>
