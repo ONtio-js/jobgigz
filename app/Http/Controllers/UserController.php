@@ -42,6 +42,28 @@ class UserController extends Controller
     public function passwordresetlinkform(){
         return view('authpages.forgot_password');
     }
+
+    public function verificationPopup(){
+        return view('authpages.verify_user');
+    }
+
+    private function verificationToken($user){
+        VerifyUser::create([
+            'token' => Str::random(60),
+            'user_id' => $user->id
+        ]);
+
+        Mail::to($user->email)->send(new Emailverify($user));
+    }
+    public function repeatVerification($id){
+        $user = User::find($id);
+
+        if ($this->verificationToken($user)){
+            return redirect('/');
+        }else {
+            return "hello";
+        }
+    }
     public function register(UserRequest $request)
     {
         $request->validated();
@@ -53,12 +75,7 @@ class UserController extends Controller
         ]);
 
         if ($user_stored) {
-            VerifyUser::create([
-                'token' => Str::random(60),
-                'user_id' => $user_stored->id
-            ]);
-
-            Mail::to($user_stored->email)->send(new Emailverify($user_stored));
+            $this->verificationToken($user_stored);
 
             return redirect()->back()->with('confirmation', 'Account created successfully, confirm your email for full access');
         } else {
@@ -101,25 +118,27 @@ class UserController extends Controller
 
     }
 
-    public function verifyemail($token)
+    public function verifyemail($token )
     {
         $verified = VerifyUser::where('token','=',$token)->first();
 
         if (isset($verified)){
             $user = $verified->user;
 
-            if (!$user->verified_email_at){
-                $user->verified_email_at = Carbon::now();
+            if (!$user->email_verified_at){
+                $user->email_verified_at = Carbon::now();
                 $user->remember_token = $token;
                 $user->save();
+                $verified->delete();
                 session()->flash('message','Email succesfully Verified');
-                return redirect(route('showlogin'));
+                return redirect()->route('showlogin');
             }else{
                 session()->flash('message','Email already Verified');
-                return redirect(route('showlogin'));
+                return redirect()->route('showlogin');
             }
+
         }else{
-            return redirect(route('showlogin'))->with('message','unrecognized Token');
+            return redirect()->route('showlogin')->with('message','unrecognized Token');
         }
 
         return true;
@@ -131,11 +150,12 @@ class UserController extends Controller
             'email'=>'required|email|exists:users,email'
         ]);
 
-        $user = User::where('email','=',$request->email);
+        $user = User::where('email',$request->email)->first();
 
-        if (isset($user)){
+        if ($user != null){
 
             PasswordReset::create([
+                'users_id' => $user->id,
                 'email' =>$request->email,
                 'token' => Str::random(60),
                 'created_at' => Carbon::now()
@@ -147,6 +167,19 @@ class UserController extends Controller
         }else{
             return abort(403,'Unauthorized Access');
         }
+    }
+
+    public function passwordreset($token){
+        $verified = PasswordReset::where('token',$token);
+
+        if (isset($verified)){
+
+            return view('authpages.reset_password',['email'=>$verified->email]);
+        }else{
+            session()->flash('message','Unauthorized Access, please contact the support');
+            return view('authpages.sign_in');
+        }
+
     }
 
     public function password_validate_reset(Request $request){
@@ -166,18 +199,7 @@ class UserController extends Controller
     }
 
 
-    public function passwordreset($token){
-        $verified = PasswordReset::where('token',$token);
 
-        if (isset($verified)){
-            
-            return view('authpages.reset_password',['email'=>$verified->email]);
-        }else{
-            session()->flash('message','Unauthorized Access, please contact the support');
-            return view('authpages.sign_in');
-        }
-
-    }
 
 
     public function logout(){

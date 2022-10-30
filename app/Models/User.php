@@ -18,13 +18,7 @@ class User extends Authenticatable implements MustVerifyEmail
      *
      * @var array<int, string>
      */
-    protected $fillable = [
-        'name',
-        'email',
-        'password',
-        'role'
-    ];
-
+    protected $guarded = [];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -64,6 +58,6 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     public function Passwordreset(){
-        return $this->hasOne(PasswordReset::class,'email','email');
+        return $this->hasOne(PasswordReset::class,'users_id');
     }
 }
