@@ -54,15 +54,15 @@ class UserController extends Controller
         ]);
 
         Mail::to($user->email)->send(new Emailverify($user));
+
+
     }
     public function repeatVerification($id){
         $user = User::find($id);
 
-        if ($this->verificationToken($user)){
-            return redirect('/');
-        }else {
-            return "hello";
-        }
+        $this->verificationToken($user);
+
+        return redirect('/');
     }
     public function register(UserRequest $request)
     {
@@ -120,6 +120,10 @@ class UserController extends Controller
 
     public function verifyemail($token )
     {
+        if (session()->has('details')){
+            $this->logout();
+        }
+
         $verified = VerifyUser::where('token','=',$token)->first();
 
         if (isset($verified)){
@@ -129,19 +133,20 @@ class UserController extends Controller
                 $user->email_verified_at = Carbon::now();
                 $user->remember_token = $token;
                 $user->save();
-                $verified->delete();
+
                 session()->flash('message','Email succesfully Verified');
                 return redirect()->route('showlogin');
             }else{
                 session()->flash('message','Email already Verified');
                 return redirect()->route('showlogin');
             }
-
+            $verified->delete();
         }else{
             return redirect()->route('showlogin')->with('message','unrecognized Token');
         }
 
         return true;
+
     }
 
     public function sendPasswordResetLink(Request $request)

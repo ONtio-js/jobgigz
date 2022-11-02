@@ -17,7 +17,7 @@ class SignedIn
     public function handle(Request $request, Closure $next)
     {
         if ((session()->has('details')) && ((url('showlogin') || url('company-reg') || url('freelance-reg')) == $request->url())){
-            return redirect()->back();
+            return redirect('/')->with('message','You can\'t access that page');
         }
         return $next($request);
     }
