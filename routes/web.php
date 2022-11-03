@@ -45,9 +45,10 @@ Route::controller(UserController::class)->group(function(){
     Route::get('/showlogin','showlogin')->name('showlogin')->middleware('SignedIn');
     Route::get('/logout','logout')->name('logout')->middleware('logout');
     Route::get('/users/verify/{token}','verifyemail')->name('verification');
+    Route::get('/newpasswordform','newpasswordform')->name('newpasswordform');
     Route::post('/passwordresetlink','sendPasswordResetLink')->name('passwordresetlink');
-    Route::get('/passwordrest/{token}','passwordreset')->name('passwordreset');
-    Route::post('/validate_reste_password','password_validate_reset')->name('passwordvalidate');
+    Route::get('/passwordreset/{token}','passwordreset')->name('passwordreset');
+    Route::post('/validate_reset_password','password_validate_reset')->name('passwordvalidate');
     Route::get('/resetlinkform','passwordresetlinkform')->name('passwordresetlinkform');
     Route::get('/verification-alert','verificationPopup')->name('verification-popup');
     Route::post('/re-verification/{id}','repeatVerification')->name('reverify');
@@ -88,3 +89,4 @@ Route::controller(CompanyController::class)->group(function(){
     Route::get('/freelancers','freelancers')->name('freelancers');
     Route::get('/profile','profile')->name('profile');
 });
+

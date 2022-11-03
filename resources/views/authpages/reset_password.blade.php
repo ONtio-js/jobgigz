@@ -29,7 +29,15 @@
                         </div>
                     </div>
                     <p class="forgot_des">Enter your new password.</p>
-                    <input type="hidden" name="email" value="{{$email}}">
+                    <div class="form-group">
+                        <label class="label15">Email<span style="color: red">*</span></label>
+                        <input name="email" type="email" class="job-input" placeholder="Enter Email Address">
+                    </div>
+                    @error('password')
+                       <span style="color: red">{{$message}}</span>
+                    @enderror
+
+
                     <div class="form-group">
                         <label class="label15">New Password<span style="color: red">*</span></label>
                         <input name="password" type="password" class="job-input" placeholder="Enter Email Address">

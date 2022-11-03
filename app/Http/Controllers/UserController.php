@@ -46,7 +46,9 @@ class UserController extends Controller
     public function verificationPopup(){
         return view('authpages.verify_user');
     }
-
+    public function newpasswordform(){
+        return view('authpages.reset_password');
+    }
     private function verificationToken($user){
         VerifyUser::create([
             'token' => Str::random(60),
@@ -175,20 +177,19 @@ class UserController extends Controller
     }
 
     public function passwordreset($token){
-        $verified = PasswordReset::where('token',$token);
+        $verified = PasswordReset::where('token',$token)->first();
 
         if (isset($verified)){
-
-            return view('authpages.reset_password',['email'=>$verified->email]);
+           return redirect()->route('newpasswordform');
         }else{
-            session()->flash('message','Unauthorized Access, please contact the support');
-            return view('authpages.sign_in');
+            abort(403,'forbidden access');
         }
 
     }
 
     public function password_validate_reset(Request $request){
         $request->validate([
+            'email' => 'required',
             'password'=>'required|confirmed|min:10|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
         ]);
        $passwordUpdate = User::where('email',$request->email)->upadte([

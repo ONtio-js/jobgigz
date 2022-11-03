@@ -10,7 +10,7 @@
     <h2>Welcome to jobgigz</h2>
     <p>
 
-        click <a href="{{url('/passwordreset/'.$user->passwordreset->token)}}">here </a>to verify your account
+        click <a href="{{url('/passwordreset/'.$user->passwordreset->token)}}">here </a>to reset your password
     </p>
 </body>
 </html>
