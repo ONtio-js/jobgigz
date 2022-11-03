@@ -192,10 +192,10 @@ class UserController extends Controller
             'email' => 'required',
             'password'=>'required|confirmed|min:10|regex:/^.*(?=.{3,})(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[\d\x])(?=.*[!$#%]).*$/',
         ]);
-       $passwordUpdate = User::where('email',$request->email)->upadte([
+       $passwordUpdate = User::where('email',$request->email)->update([
             'password'=>Hash::make($request->password)
         ]);
-
+        $this->logout();
         if ($passwordUpdate){
             session()->flash('message','password Updated successfully');
             return redirect(route('showlogin'));
